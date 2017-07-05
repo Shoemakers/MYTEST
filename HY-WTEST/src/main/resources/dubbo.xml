@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<!-- 引用服务 -->
+	<!-- 使用dubbo发布服务 -->
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="HY-Test" />
+	<!-- 注册中心的地址 -->
+	<dubbo:registry protocol="zookeeper" address="192.168.1.25:2181" />
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:reference interface="ph.mallody.test.service.ITestService" id ="testService"/>
+</beans>
